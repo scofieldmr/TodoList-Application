@@ -79,10 +79,9 @@ public class TaskController {
 
     //To update the task by Id
     @PostMapping("/update/{id}")
-    public ResponseEntity<?> updateTaskDetailsById(@PathVariable("id") Long taskId,
-                                                   @RequestBody TaskDto upTaskDto){
+    public ResponseEntity<?> updateTaskDetailsById(@PathVariable("id") Long taskId){
         try{
-            TaskViewDto updateTaskDto = taskService.updateTaskById(taskId,upTaskDto);
+            TaskViewDto updateTaskDto = taskService.updateTaskById(taskId);
 
             return ResponseEntity.ok().body(updateTaskDto);
         }

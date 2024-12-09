@@ -63,12 +63,11 @@ public class TaskServiceImp implements TaskService{
     }
 
     @Override
-    public TaskViewDto updateTaskById(Long taskId, TaskDto updateTaskDto) {
+    public TaskViewDto updateTaskById(Long taskId) {
         Task taskDetails = taskRepository.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task Id not found : " + taskId));
 
-        taskDetails.setTaskName(updateTaskDto.getTaskName());
-        taskDetails.setTaskStatus(updateTaskDto.isTaskStatus());
+        taskDetails.setTaskStatus(!taskDetails.isTaskStatus());
 
         taskRepository.save(taskDetails);
 
