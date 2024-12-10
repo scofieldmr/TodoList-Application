@@ -88,8 +88,8 @@ const ListComp = () => {
     return (
         <div>
             <div className='container'>
-                <div className='card col-md-6 offset-md-3 offset-md-3'>
-                    <h2 className='text-center'>Add New Task </h2>
+                <div className='card col-md-6 offset-md-3 offset-md-3' style={{marginTop:'10px'}}>
+                    <h2 className='text-center' style={{color:'Red',margin:'10px'}}>Add New Task </h2>
                     <form style={{padding:'20px'}}>
                         <div className='form-group mb-6'>
                         <input
@@ -107,14 +107,15 @@ const ListComp = () => {
                                 onClick={addTask}>Add Task</button>
                     </form>
                 </div>
-                <h2 className='text-center'>Task List</h2>
+                <hr></hr>
+                <h2 className='text-center' style={{color:'Red'}} >Task List</h2>
+                <hr></hr>
 
                 <table className='table table-bordered'>
                     <thead>
                         <tr>
                             <th>Task Id </th>
                             <th>Task Name</th>
-                            <th>Task Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -125,7 +126,6 @@ const ListComp = () => {
                                 <tr key={task.id} className={task.taskStatus ? 'completed-task' : ''}>
                                     <td>{task.id}</td>
                                     <td>{task.taskName}</td>
-                                    <td>{task.taskStatus ? 1:0}</td>
                                     <td>
                                         <button className='btn btn-success' onClick={()=>toggleStatus(task.id)}>Completed</button>
                                         <button className='btn btn-danger' style={{marginLeft : '10px'}}
