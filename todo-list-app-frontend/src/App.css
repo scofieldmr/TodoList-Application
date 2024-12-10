@@ -1,4 +1,5 @@
 .completed-task {
-    text-decoration: line-through;
-    color: gray;
+    text-decoration: 2px line-through;
+    color: rgb(255, 0, 0);
+    
   }
